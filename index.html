@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html id = "id2">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+  
+    <link rel='stylesheet' href='//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Work+Sans:200,300'><link rel="stylesheet" href="style.css">
 <style>
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 20%
+    margin: 0 auto;
 }
 .btn{
   position: fixed;
@@ -18,6 +23,7 @@ table {
 
 
 td, th {
+  width: 40%;
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
@@ -186,11 +192,19 @@ tr:nth-child(even) {
 }
 </script>
 </head>
-<body>
+<header>
+  <ul>
+    <li><a class="active" href="index.html">inicio</a></li>
+    <li><a href="https://github.com/cbust4ma/Cursus-42/tree/main/minishell">cositas</a></li>
+    <li><a href="https://github.com/cbust4ma/Cursus-42/tree/main/ftprintf">Contacto</a></li>
+    <li><a href="#https://github.com/cbust4ma/cbust4ma">Acerca</a></li>
+  </ul>
+</header>
+<body id = "body">
 
 <h2>HTML Table</h2>
 
-<table>
+<table width="100%" >
   <tr>
     <th>Company</th>
     <th>Contact</th>
@@ -247,49 +261,218 @@ tr:nth-child(even) {
 </div>
 </div>
 
-<div class ="video">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/MnYDF7pqoiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
-
-<script type="text/javascript">
-  if (annyang) {
-    
-  var commands = {
-    'reproduce  video': function() {
-        document.querySelector('video').play();
-    },
-    'pausar video': function() {
-        document.querySelector('video').pause();
-    },
-    '* video': function(word) {
-      if(word === 'play') {
-          document.querySelector('video').play();
-      }
-      else if(word === 'pause' || word === 'stop') {
-          document.querySelector('video').pause();
-      }
-    
-    },
-    'fondo rojo': function()
-      {$('body').css('background','red')},
-  'texto verde': function()
-    {$('p').css('color','green')},
-    "hola" : () {
-     alert("Holaaaaaaaaaa");
-    }
-  };
-
-annyang.addCommands(commands);
-annyang.setLanguage('es-ES');
-
-// Start listening. You can call this here, or attach this call to an event, button, etc.
-annyang.start();
+<video width="400" height="740" controls >
+  <source src="a.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+Your browser does not support the video tag.
+</video>
+<style>
+  video{
+    float:left;
   }
-</script> 
-<button class=".annyang-btn">SPEAK NOW</button>
+  ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+</style>
+
+<h1><pre id = "txt">Comandos por voz de prueba.
+Letra tamaño x <b>Por ejemplo letra tamaño 10.</b>
+fondo rojo.
+texto verde.
+reproducir video, pausar video, iniciar video, detener video.
+agur para cerrar la ventana.
+te reto a que le pidas que te lea los comandos
+</pre>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+
+
 
 </body>
 
+<script>
+
+  //mic
+  $( document ).ready(function() {
+  $("h1").footer("Say: Hola");
+  $('div.move').each(function(i) {
+    $(this).addClass('small-vibe' + i);
+  });
+  
+  setTimeout(function() {
+    $("h1").toggleClass('slide-in');
+  }, 1000);
+});
+
+if (annyang) {
+  annyang.addCallback('result', function() {
+    console.log('soundstart');
+    $('div.move').each(function(i, obj) {
+      $(this).removeClass('big-vibe' + i);
+    });
+  });
+
+  annyang.addCallback('end', function() {
+    console.log('ended');
+    //restart();
+    $('div.move').each(function(i, obj) {
+      $(this).removeClass('big-vibe' + i);
+      $(this).addClass('small-vibe' + i);
+    });
+  });
+
+  annyang.addCallback('result', function() {
+    console.log('result');
+    //restart();
+    $('div.move').each(function(i, obj) {
+      $(this).removeClass('big-vibe' + i);
+      $(this).addClass('small-vibe' + i);
+    });  
+  });
+
+  var voiceCommands = {
+  'reproduce (video) vídeo': function() {
+      document.querySelector('video').play();
+    
+      
+        
+    },
+    'pausar (video) vídeo': function() {
+        document.querySelector('video').pause();
+    },
+    '*vídeo(video)': function(word) {
+      alert(word);
+        if(word == 'reproducir v' || word == 'iniciar v') {
+            document.querySelector('video').play();
+        }
+        else if(word === 'pausar v' || word === 'detener v') {
+            document.querySelector('video').pause();
+        }
+    },
+   
+    '(color) fondo :tag': function(color)
+      {
+        alert("'"+color+"'");
+        $('body').css('background-color', color)
+
+      },
+  'texto (letra) *tag': function(color)
+    {$('html').css('color',color)},
+    "hola" : function() {
+     alert("Holaaaaaaaaaa");
+    },
+    'letra tamaño *tag': function(letra)
+    {
+      alert(letra);
+    txt = document.getElementById('id2');
+     style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
+     currentSize = parseFloat(style);
+     txt.style.fontSize = (letra) + 'px';
+    },
+    'agur (adios) (chao) (hasta luego) (ciao)': function(){
+      alert("adios");
+      window.open('','_parent',''); 
+   window.close(); 
+
+    },
+    'inicio': function(){
+      window.location.replace("index.html");
+    },
+    'cositas': function(){
+      window.location.replace("https://github.com/cbust4ma/Cursus-42/tree/main/minishell");
+    },
+    'contacto': function(){
+      window.location.replace("https://github.com/cbust4ma/Cursus-42/tree/main/minishell");
+    },
+    'acerca': function(){
+      window.location.replace("https://github.com/cbust4ma/Cursus-42/tree/main/minishell");
+    },
+    '(enseñame) (leeme) (explicame los) (lee) (los) (el) comandos': function(){
+      let txt = document.getElementById("txt").textContent;
+      alert("Porque tu lo digas");
+
+  
+
+let utter = new SpeechSynthesisUtterance();
+utter.lang = "es-ES";
+utter.text = txt;
+utter.volume = 0.5;
+window.speechSynthesis.getVoices() 
+utter.onend = function() {
+	alert('Speech has finished');
+}
+window.speechSynthesis.speak(utter);
+
+    }
+	};
+  
+  	//annyang.addCommands(voiceCommands);
+    annyang.setLanguage('es-ES');
+    annyang.addCommands(voiceCommands);
+  annyang.start();
+    //annyang.start();
+}
+</script>
+
+
+
 </html>
+<footer class = "footer">
+  <!-- partial:index.partial.html -->
+<!-- <section class="results">
+<button id="begin">Start</button>
+</section> -->
+<div class="fixed-container">
+  <div class="listening">
+    <i class="ion-ios7-mic"></i> <span class="loading">Listening</span>
+  </div>
+  <section class="voice-vibe">
+    <div class="no-move"></div>
+    <div class="move"></div>
+    <div class="move"></div>
+    <div class="move"></div>
+    <div class="move"></div>
+    <div class="move"></div>
+    <div class="move"></div>
+    <div class="move"></div>
+    <div class="move"></div>
+    <div class="no-move"></div>
+  </section>
+
+  <span class="txt-ct">
+    <h1></h1>
+  </span>
+</div>
+
+<section class="results">
+  <span id="imgList"></span>
+</section>
+
+<div class="overlay"></div>
+<div class="loader">
+  <svg class="circular" viewBox="25 25 50 50">
+    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+  </svg>
+</div>
+
+</footer>
