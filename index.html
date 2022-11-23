@@ -90,6 +90,7 @@ tr:nth-child(even) {
 	padding: 11px 9px;
 }
 .adminActions {
+  z-index: 10;
     position: fixed;
   top: 65%;
   left: 0;
@@ -314,7 +315,7 @@ te reto a que le pidas que te lea los comandos
 
   //mic
   $( document ).ready(function() {
-  $("h1").footer("Say: Hola");
+  $("h1").body("Say: Hola");
   $('div.move').each(function(i) {
     $(this).addClass('small-vibe' + i);
   });
