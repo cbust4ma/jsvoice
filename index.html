@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html id = "id2">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+.btn{
+  position: fixed;
+  top: 65%;
+  left: 0;
+}
+
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.css-button {
+	color: #FFFFFF;
+	font-size: 18px;
+	border-radius: 16px;
+	border: solid 1px #3866a3;
+	text-shadow: 1px 1px 0px #528ECC;
+	box-shadow: inset 1px 1px 0px 0px #BBDAF7;
+	text-decoration: none;
+	cursor: zoom-out;
+	
+	overflow: hidden;
+	font-family: Arial;
+	background: linear-gradient(180deg, #63B8EE 10%, #468CCF 100%);
+	display: inline-flex;
+	
+	padding: 0;
+    top:59.1%;
+  left: 0;
+}
+.css-button:hover {
+	background: linear-gradient(180deg, #468CCF 10%, #63B8EE 100%);
+}
+
+.css-button-icon {
+	position: relative;
+	
+	
+	padding: 11px 9px;
+}
+.css-button2 {
+	color: #FFFFFF;
+	font-size: 18px;
+	border-radius: 16px;
+	border: solid 1px #3866a3;
+	text-shadow: 1px 1px 0px #528ECC;
+	box-shadow: inset 1px 1px 0px 0px #BBDAF7;
+	text-decoration: none;
+	cursor: zoom-in;
+	
+	overflow: hidden;
+	font-family: Arial;
+	background: linear-gradient(180deg, #63B8EE 10%, #468CCF 100%);
+	
+	
+	padding: 0;
+    top: 53%;
+  left: 0;
+}
+.css-button2:hover {
+	background: linear-gradient(180deg, #468CCF 10%, #63B8EE 100%);
+}
+
+.css-button2-icon {
+	position: relative;
+
+	padding: 11px 9px;
+}
+.adminActions {
+    position: fixed;
+  top: 65%;
+  left: 0;
+}
+
+  .adminButton {
+    height: 60px;
+    width: 60px;
+    background-color: rgba(67, 83, 143, .8);
+    border-radius: 50%;
+    display: block;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+    .adminButton i {
+      font-size: 30px;
+    }
+
+  .adminButtons {
+    position: absolute;
+    width: 100%;
+    bottom: 120%;
+    text-align: center;
+  }
+
+    .adminButtons  .btn{
+      display: block;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      text-decoration: none;
+      margin: 10px auto 0;
+      line-height: 1.15;
+      color: #fff;
+      opacity: 0;
+      visibility: hidden;
+      position: relative;
+      box-shadow: 0 0 5px 1px rgba(51, 51, 51, .3);
+    }
+
+      .adminButtons .btn:hover{
+        transform: scale(1.05);
+      }
+
+      .adminButtons a:nth-child(1) {background-color: #ff5722; transition: opacity .2s ease-in-out .3s, transform .15s ease-in-out;}
+      .adminButtons a:nth-child(2) {background-color: #03a9f4; transition: opacity .2s ease-in-out .25s, transform .15s ease-in-out;}
+      .adminButtons a:nth-child(3) {background-color: #f44336; transition: opacity .2s ease-in-out .2s, transform .15s ease-in-out;}
+      .adminButtons a:nth-child(4) {background-color: #4CAF50; transition: opacity .2s ease-in-out .15s, transform .15s ease-in-out;}
+
+      .adminActions .btn  i {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+  .adminToggle {
+    -webkit-appearance: none;
+    position: absolute;
+    border-radius: 50%;
+    top: 0; left: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    z-index: 2;
+    transition: box-shadow .2s ease-in-out;
+    box-shadow: 0 3px 5px 1px rgba(51, 51, 51, .3);
+  }
+
+    .adminToggle:hover {
+      box-shadow: 0 3px 6px 2px rgba(51, 51, 51, .3);
+    }
+
+    .adminToggle:checked ~ .adminButtons  .btn {
+      opacity: 1;
+      visibility: visible;
+    }
+</style>
+<script>
+    function increaseFontSize(id, increaseFactor){
+     txt = document.getElementById(id);
+     style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
+     currentSize = parseFloat(style);
+     if (currentSize + increaseFactor >= 15 && currentSize + increaseFactor < 75){
+     txt.style.fontSize = (currentSize + increaseFactor) + 'px';
+     }
+     else
+     {
+        alert("Tama\u00F1o maximo " + currentSize);
+     }
+
+ 
+
+}
+</script>
+</head>
+<body>
+
+<h2>HTML Table</h2>
+
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>Ernst Handel</td>
+    <td>Roland Mendel</td>
+    <td>Austria</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Yoshi Tannamuri</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
+<div class="adminActions">
+    <input type="checkbox" name="adminToggle" class="adminToggle" />
+    <a class="adminButton btn" href="#"><i class="fa fa-eye"></i></a>
+	<div class="adminButtons">
+<button class ="btn css-button2" type="button" value="Increase Font Size 10px" onclick="increaseFontSize('id2', 10)">	<span class="css-button2-text">
+    <span>A</span>
+</span>
+<span class="css-button2-icon">
+    <i class="fa fa-plus"></i>
+</span></button>
+
+<button class ="btn css-button" type="button" value="Decrease Font Size 10px" onclick="increaseFontSize('id2', -10)"><span class="css-button-text">
+    <span>A</span>
+</span>
+<span class="css-button-icon">
+    <i class="fa fa-minus"></i>
+</span></button>
+</div>
+</div>
+
+<div class ="video">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/MnYDF7pqoiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+
+<script type="text/javascript">
+  if (annyang) {
+    
+  var commands = {
+    'reproduce  video': function() {
+        document.querySelector('video').play();
+    },
+    'pausar video': function() {
+        document.querySelector('video').pause();
+    },
+    '* video': function(word) {
+      if(word === 'play') {
+          document.querySelector('video').play();
+      }
+      else if(word === 'pause' || word === 'stop') {
+          document.querySelector('video').pause();
+      }
+    
+    },
+    'fondo rojo': function()
+      {$('body').css('background','red')},
+  'texto verde': function()
+    {$('p').css('color','green')},
+    "hola" : () {
+     alert("Holaaaaaaaaaa");
+    }
+  };
+
+annyang.addCommands(commands);
+annyang.setLanguage('es-ES');
+
+// Start listening. You can call this here, or attach this call to an event, button, etc.
+annyang.start();
+  }
+</script> 
+<button class=".annyang-btn">SPEAK NOW</button>
+
+</body>
+
+</html>
