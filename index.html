@@ -4,9 +4,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="dict_color.js"></script>
   
     <link rel='stylesheet' href='//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css'>
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Work+Sans:200,300'><link rel="stylesheet" href="style.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Work+Sans:200,300'><link rel="stylesheet" href="style.css"> 
 <style>
 
 table {
@@ -201,47 +202,9 @@ tr:nth-child(even) {
     <li><a href="#https://github.com/cbust4ma/cbust4ma">Acerca</a></li>
   </ul>
 </header>
-<body id = "body">
+<body id = "bodys">
 
-<h2>HTML Table</h2>
 
-<table width="100%" >
-  <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-  <tr>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>Helen Bennett</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Yoshi Tannamuri</td>
-    <td>Canada</td>
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
-  </tr>
-</table>
 <div class="adminActions">
     <input type="checkbox" name="adminToggle" class="adminToggle" />
     <a class="adminButton btn" href="#"><i class="fa fa-eye"></i></a>
@@ -298,35 +261,25 @@ li a:hover:not(.active) {
 </style>
 
 <h1><pre id = "txt">Comandos por voz de prueba.
-Letra tamaño x <b>Por ejemplo letra tamaño 10.</b>
+Letra x <b>Por ejemplo letra 10.</b>
 fondo rojo.
 texto verde.
 reproducir video, pausar video, iniciar video, detener video.
 agur para cerrar la ventana.
+nombre del menu para que te lleve a donde quieras.
 te reto a que le pidas que te lea los comandos
+
 </pre>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
 
-
-
-</body>
-
 <script>
+       
 
-  //mic
-  $( document ).ready(function() {
-  $("h1").body("Say: Hola");
-  $('div.move').each(function(i) {
-    $(this).addClass('small-vibe' + i);
-  });
   
-  setTimeout(function() {
-    $("h1").toggleClass('slide-in');
-  }, 1000);
-});
-
-if (annyang) {
-  annyang.addCallback('result', function() {
+  if (annyang) {
+   
+  
+    annyang.addCallback('result', function() {
     console.log('soundstart');
     $('div.move').each(function(i, obj) {
       $(this).removeClass('big-vibe' + i);
@@ -373,18 +326,18 @@ if (annyang) {
    
     '(color) fondo :tag': function(color)
       {
-        alert("'"+color+"'");
-        $('body').css('background-color', color)
+        var element = document.getElementById("bodys");
+        element.style.backgroundColor = dict_color[fondo];
 
       },
-  'texto (letra) *tag': function(color)
-    {$('html').css('color',color)},
-    "hola" : function() {
+  'texto *tag': function(color)
+    {$('pre').css('color', dict_color[color])},
+    'hola' : function() {
      alert("Holaaaaaaaaaa");
     },
-    'letra tamaño *tag': function(letra)
+    'letra *tag': function(letra)
     {
-      alert(letra);
+      
     txt = document.getElementById('id2');
      style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
      currentSize = parseFloat(style);
@@ -397,27 +350,27 @@ if (annyang) {
 
     },
     'inicio': function(){
-      window.location.replace("index.html");
-    },
-    'cositas': function(){
-      window.location.replace("https://github.com/cbust4ma/Cursus-42/tree/main/minishell");
-    },
-    'contacto': function(){
-      window.location.replace("https://github.com/cbust4ma/Cursus-42/tree/main/minishell");
-    },
-    'acerca': function(){
-      window.location.replace("https://github.com/cbust4ma/Cursus-42/tree/main/minishell");
-    },
-    '(enseñame) (leeme) (explicame los) (lee) (los) (el) comandos': function(){
-      let txt = document.getElementById("txt").textContent;
-      alert("Porque tu lo digas");
+        window.location.replace("index.html");
+      },
+      'cositas': function(){
+        window.location.replace("https://github.com/cbust4ma/Cursus-42/tree/main/minishell");
+      },
+      '(llevame) (ve) (ir) (a) contacto': function(){
+        window.location.replace("https://ca-times.brightspotcdn.com/dims4/default/83dc849/2147483647/strip/true/crop/2048x1108+0+0/resize/1200x649!/format/webp/quality/80/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F12%2Fa5%2F79e097ccf62312d18a025f22ce48%2Fhoyla-recuento-11-cosas-aman-gatos-top-001");
+      },
+      'acerca': function(){
+        window.location.replace("https://cdn.memegenerator.es/imagenes/memes/full/0/99/997359.jpg");
+      },
+      '(enseñame) (leeme) (explicame) (lee) (los) comandos': function(){
+        let txt = document.getElementById("txt").textContent;
+        alert("Porque tu lo digas");
 
   
 
 let utter = new SpeechSynthesisUtterance();
 utter.lang = "es-ES";
 utter.text = txt;
-utter.volume = 0.5;
+utter.volume = 0.8;
 window.speechSynthesis.getVoices() 
 utter.onend = function() {
 	alert('Speech has finished');
@@ -433,7 +386,12 @@ window.speechSynthesis.speak(utter);
   annyang.start();
     //annyang.start();
 }
-</script>
+    
+  </script>
+
+</body>
+
+
 
 
 
@@ -443,6 +401,7 @@ window.speechSynthesis.speak(utter);
 <!-- <section class="results">
 <button id="begin">Start</button>
 </section> -->
+
 <div class="fixed-container">
   <div class="listening">
     <i class="ion-ios7-mic"></i> <span class="loading">Listening</span>
@@ -461,7 +420,7 @@ window.speechSynthesis.speak(utter);
   </section>
 
   <span class="txt-ct">
-    <h1></h1>
+    <h2></h2>
   </span>
 </div>
 
