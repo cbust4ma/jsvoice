@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="dict_color.js"></script>
   
+  
     <link rel='stylesheet' href='//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Work+Sans:200,300'><link rel="stylesheet" href="style.css"> 
 <style>
@@ -258,6 +259,13 @@ li a:hover:not(.active) {
   background-color: #555;
   color: white;
 }
+#container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 700px;
+  height: 400px;
+}
 </style>
 
 <h1><pre id = "txt">Comandos por voz de prueba.
@@ -396,6 +404,7 @@ window.speechSynthesis.speak(utter);
 
 
 </html>
+
 <footer class = "footer">
   <!-- partial:index.partial.html -->
 <!-- <section class="results">
@@ -435,4 +444,21 @@ window.speechSynthesis.speak(utter);
   </svg>
 </div>
 
+<style>
+  #container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 70%;
+  height: 400px;
+}
+</style>
+
+
+<div id="container"></div>
+<script src='https://pchen66.github.io/js/three/three.min.js'></script>
+<script src='https://rawgit.com/pchen66/panolens.js/dev/build/panolens.min.js'></script>
+<script  src="./panorama.js"></script>
+<input type='file' />
+<br><img id="myImg uploaded-file" src="#">
 </footer>
